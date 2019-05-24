@@ -22,7 +22,7 @@ The quick version is:
 3. Enable I2C
 4. Reboot (`sudo reboot`)
 
-When testing I2C (`$ i2cdetect -y 1`), you should see at least one connected device, your TSL2591 at `0x29`. For more information, see the [FAQ](#i2c-check-for-static-address).
+When testing I2C (`sudo i2cdetect -y 1`), you should see at least one connected device, your TSL2591 at `0x29`. For more information, see the [FAQ](#i2c-check-for-static-address).
 
 ### Step 2: Install System dependencies
 
