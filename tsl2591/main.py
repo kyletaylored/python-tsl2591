@@ -84,8 +84,8 @@ class Tsl2591(object):
         self,
         i2c_bus=1,
         sensor_address=0x29,
-        integration=INTEGRATIONTIME_100MS,
-        gain=GAIN_LOW
+        integration=INTEGRATIONTIME_200MS,
+        gain=GAIN_MED
     ):
         self.bus = smbus.SMBus(i2c_bus)
         self.sendor_address = sensor_address
