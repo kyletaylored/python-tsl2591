@@ -3,7 +3,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/maxlklaxl/python-tsl2591.svg)](https://github.com/maxlklaxl/python-tsl2591/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/maxlklaxl/python-tsl2591.svg)](https://github.com/maxlklaxl/python-tsl2591/network)
 [![GitHub issues](https://img.shields.io/github/issues/maxlklaxl/python-tsl2591.svg)](https://github.com/maxlklaxl/python-tsl2591/issues)
-[![Inspired by J0s3f](https://img.shields.io/badge/Inspired%20by-adafruit-blue.svg)](https://gitgud.io/adafruit/Adafruit_TSL2591_Library)
+[![Inspired by Adafruit](https://img.shields.io/badge/Inspired%20by-adafruit-blue.svg)](https://gitgud.io/adafruit/Adafruit_TSL2591_Library)
 
 This is a simple python library for the Adafruit TSL2591 breakout board based on the [Arduino library](https://github.com/adafruit/Adafruit_TSL2591_Library) from Adafruit. It was developed to work on a Raspberry PI.
 
