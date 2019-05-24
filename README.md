@@ -1,11 +1,9 @@
 # TSL2591 Python Library
 
-[![GitHub stars](https://img.shields.io/github/stars/natterstefan/speedtest-cron.svg)](https://github.com/natterstefan/speedtest-cron/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/natterstefan/speedtest-cron.svg)](https://github.com/natterstefan/speedtest-cron/network)
-[![GitHub issues](https://img.shields.io/github/issues/natterstefan/speedtest-cron.svg)](https://github.com/natterstefan/speedtest-cron/issues)
-[![Inspired by J0s3f](https://img.shields.io/badge/Inspired%20by-J0s3f-blue.svg)](https://gitgud.io/J0s3f/speedtest_cron)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/natterstefan/speedtest-cron.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/natterstefan/speedtest-cron)
-[![Twitter Follow](https://img.shields.io/twitter/follow/natterstefan.svg?style=social&label=Follow)](https://twitter.com/natterstefan)
+[![GitHub stars](https://img.shields.io/github/stars/maxlklaxl/python-tsl2591.svg)](https://github.com/maxlklaxl/python-tsl2591/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/maxlklaxl/python-tsl2591.svg)](https://github.com/maxlklaxl/python-tsl2591/network)
+[![GitHub issues](https://img.shields.io/github/issues/maxlklaxl/python-tsl2591.svg)](https://github.com/maxlklaxl/python-tsl2591/issues)
+[![Inspired by J0s3f](https://img.shields.io/badge/Inspired%20by-adafruit-blue.svg)](https://gitgud.io/adafruit/Adafruit_TSL2591_Library)
 
 This is a simple python library for the Adafruit TSL2591 breakout board based on the [Arduino library](https://github.com/adafruit/Adafruit_TSL2591_Library) from Adafruit. It was developed to work on a Raspberry PI.
 
