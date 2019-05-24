@@ -11,6 +11,7 @@ http://ams.com/eng/Products/Light-Sensors/Light-to-Digital-Sensors/TSL25911
 '''
 import smbus
 import time
+import json
 
 VISIBLE = 2  # channel 0 - channel 1
 INFRARED = 1  # channel 1
@@ -180,13 +181,25 @@ class Tsl2591(object):
             return 0
 
 
+
 if __name__ == '__main__':
 
     tsl = Tsl2591()  # initialize
     full, ir = tsl.get_full_luminosity()  # read raw values (full spectrum and ir spectrum)
     lux = tsl.calculate_lux(full, ir)  # convert raw values to lux
-    print (lux, full, ir)
-    print ()
+    tsl.set_gain(GAIN_MED)
+    tsl.set_timing(INTEGRATIONTIME_300MS)
+    output = {
+      "lux": lux,
+      "full": full,
+      "ir": ir,
+      "gain": tsl.get_gain(),
+      "integration_time": tsl.get_timing()
+    }
+
+    while True:
+        print(output)
+        time.sleep(2)
 
     def test(int_time=INTEGRATIONTIME_100MS, gain=GAIN_LOW):
         tsl.set_gain(gain)
