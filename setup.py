@@ -1,13 +1,22 @@
-from setuptools import setup
+import setuptools
 
-setup(name='tsl2591',
-      version='0.0.2',
-      url='http://github.com/maxlklaxl/tsl2591',
-      author='Max Hofbauer',
-      author_email='maxhofb@gmail.com',
-      description='Community-coded Python module for TSL2591 sensor. Use it at your own risk.',
-      packages=['tsl2591'],
-      long_description=open('README.md').read(),
-      requires=['python (>= 2.7)', 'smbus (>=0.4.1)'],
-      install_requires=['smbus-cffi'],
-      zip_safe=False)
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
+    name='tsl2591',
+    version='0.0.2',
+    url='http://github.com/maxlklaxl/tsl2591',
+    author='Max Hofbauer',
+    author_email='maxhofb@gmail.com',
+    description='Community-coded Python module for TSL2591 sensor. Use at your own risk.',
+    packages=setuptools.find_packages(),
+    long_description=long_description,
+    install_requires=['smbus-cffi'],
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 2",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: POSIX :: Linux",
+    ],
+)
