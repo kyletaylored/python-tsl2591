@@ -200,3 +200,26 @@ class Tsl2591(object):
             return full - ir
         else:  # unknown channel!
             return 0
+
+    def get_current(self, format=''):
+        full, ir = self.get_full_luminosity()
+        lux = self.calculate_lux(full, ir)  # convert raw values to lux
+        output = {
+            "lux": lux,
+            "full": full,
+            "ir": ir,
+            "gain": self.get_gain(),
+            "integration_time": self.get_timing()
+        }
+        if format == 'json':
+            return json.dumps(output)
+        return output
+
+    def test(self, int_time=INTEGRATIONTIME_100MS, gain=GAIN_LOW):
+        self.set_gain(gain)
+        self.set_timing(int_time)
+        full_test, ir_test = self.get_full_luminosity()
+        lux_test = self.calculate_lux(full_test, ir_test)
+        print('Lux = %f  full = %i  ir = %i' % (lux_test, full_test, ir_test))
+        print("integration time = %i" % self.get_timing())
+        print("gain = %i \n" % self.get_gain())
