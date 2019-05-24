@@ -1,23 +1,40 @@
-# TSL2591 python module
+# TSL2591 Python Library
+
+[![GitHub stars](https://img.shields.io/github/stars/natterstefan/speedtest-cron.svg)](https://github.com/natterstefan/speedtest-cron/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/natterstefan/speedtest-cron.svg)](https://github.com/natterstefan/speedtest-cron/network)
+[![GitHub issues](https://img.shields.io/github/issues/natterstefan/speedtest-cron.svg)](https://github.com/natterstefan/speedtest-cron/issues)
+[![Inspired by J0s3f](https://img.shields.io/badge/Inspired%20by-J0s3f-blue.svg)](https://gitgud.io/J0s3f/speedtest_cron)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/natterstefan/speedtest-cron.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/natterstefan/speedtest-cron)
+[![Twitter Follow](https://img.shields.io/twitter/follow/natterstefan.svg?style=social&label=Follow)](https://twitter.com/natterstefan)
 
 This is a simple python library for the Adafruit TSL2591 breakout board based on the [Arduino library](https://github.com/adafruit/Adafruit_TSL2591_Library) from Adafruit. It was developed to work on a Raspberry PI.
 
-# INFO
+## Installation
 
-Enabeling I2C on the Raspberry Pi. You should be fine by following the instruction on [Adafruit](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
+### Step 1: Enable I2C
 
-In the last step ('Testing I2C') you should see at least one connected device, your TSL2591 (most likely at 0x29 ).
+You can enable I2C on the Raspberry Pi by following the instructions on [Adafruit](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
 
-## Installing
+The quick version is:
+
+1. Run `sudo raspi-config`
+2. Select `Advanced Options`
+3. Enable I2C
+4. Reboot (`sudo reboot`)
+
+When testing I2C (`$ i2cdetect -y 1`), you should see at least one connected device, your TSL2591 at `0x29`. For more information, see the [FAQ](#i2c-check-for-static-address).
+
+### Step 2: Install System dependencies
 
 Prior to using this library, you will need the following packages installed on your Raspberry Pi.
 
 ```bash
-sudo apt-get install libffi-dev libssl-dev
-sudo apt-get install python3-smbus
+sudo apt-get install python3-dev python3-smbus libffi-dev libssl-dev
 ```
 
-To install the python module download this repository and run:
+### Step 3: Install Python dependencies
+
+To install the Python module, download this repository and run:
 
 ```
 python setup.py install
@@ -33,10 +50,6 @@ full, ir = tsl.get_full_luminosity()  # read raw values (full spectrum and ir sp
 lux = tsl.calculate_lux(full, ir)  # convert raw values to lux
 print lux, full, ir
 ```
-
-## License
-
-Python files in this repository are released under the [MIT license](LICENSE.md).
 
 ## FAQ
 
@@ -70,3 +83,7 @@ pi@raspberrypi:~ $ sudo i2cdetect -y 1
 60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 70: -- -- -- -- -- -- -- --
 ```
+
+## License
+
+Python files in this repository are released under the [MIT license](LICENSE.md).
