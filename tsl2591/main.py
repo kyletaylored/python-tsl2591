@@ -8,10 +8,11 @@ https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configurin
 Datasheet
 https://learn.adafruit.com/adafruit-tsl2591/downloads
 '''
+from __future__ import print_function
 
-import smbus
 import time
 import json
+import smbus
 
 # *************************************************
 # ******* MACHINE VARIABLES (DO NOT TOUCH) ********
@@ -80,15 +81,19 @@ GAIN_MAX = 0x30
 
 
 class Tsl2591(object):
+    '''
+    An object class containing a series of methods to enable easy
+    interaction with the sensor.
+    '''
     def __init__(
-        self,
-        i2c_bus=1,
-        sensor_address=0x29,
-        integration=INTEGRATIONTIME_200MS,
-        gain=GAIN_MED
+            self,
+            i2c_bus=1,
+            sensor_address=0x29,
+            integration=INTEGRATIONTIME_200MS,
+            gain=GAIN_MED
     ):
         self.bus = smbus.SMBus(i2c_bus)
-        self.sendor_address = sensor_address
+        self.sender_address = sensor_address
         self.integration_time = integration
         self.gain = gain
         self.set_timing(self.integration_time)
@@ -99,7 +104,7 @@ class Tsl2591(object):
         self.enable()
         self.integration_time = integration
         self.bus.write_byte_data(
-            self.sendor_address,
+            self.sender_address,
             COMMAND_BIT | REGISTER_CONTROL,
             self.integration_time | self.gain
         )
@@ -112,7 +117,7 @@ class Tsl2591(object):
         self.enable()
         self.gain = gain
         self.bus.write_byte_data(
-            self.sendor_address,
+            self.sender_address,
             COMMAND_BIT | REGISTER_CONTROL,
             self.integration_time | self.gain
         )
@@ -162,14 +167,14 @@ class Tsl2591(object):
 
     def enable(self):
         self.bus.write_byte_data(
-            self.sendor_address,
+            self.sender_address,
             COMMAND_BIT | REGISTER_ENABLE,
             ENABLE_POWERON | ENABLE_AEN | ENABLE_AIEN
         )  # Enable
 
     def disable(self):
         self.bus.write_byte_data(
-            self.sendor_address,
+            self.sender_address,
             COMMAND_BIT | REGISTER_ENABLE,
             ENABLE_POWEROFF
         )
@@ -179,10 +184,10 @@ class Tsl2591(object):
         # not sure if we need it "// Wait x ms for ADC to complete"
         time.sleep(0.105+0.100*self.integration_time)
         full = self.bus.read_word_data(
-            self.sendor_address, COMMAND_BIT | REGISTER_CHAN0_LOW
+            self.sender_address, COMMAND_BIT | REGISTER_CHAN0_LOW
         )
         ir = self.bus.read_word_data(
-            self.sendor_address, COMMAND_BIT | REGISTER_CHAN1_LOW
+            self.sender_address, COMMAND_BIT | REGISTER_CHAN1_LOW
         )
         self.disable()
         return full, ir
@@ -205,11 +210,11 @@ class Tsl2591(object):
         full, ir = self.get_full_luminosity()
         lux = self.calculate_lux(full, ir)  # convert raw values to lux
         output = {
-            "lux": lux,
-            "full": full,
-            "ir": ir,
-            "gain": self.get_gain(),
-            "integration_time": self.get_timing()
+            'lux': lux,
+            'full': full,
+            'ir': ir,
+            'gain': self.get_gain(),
+            'integration_time': self.get_timing()
         }
         if format == 'json':
             return json.dumps(output)
@@ -220,6 +225,6 @@ class Tsl2591(object):
         self.set_timing(int_time)
         full_test, ir_test = self.get_full_luminosity()
         lux_test = self.calculate_lux(full_test, ir_test)
-        print('Lux = %f  full = %i  ir = %i' % (lux_test, full_test, ir_test))
-        print("integration time = %i" % self.get_timing())
-        print("gain = %i \n" % self.get_gain())
+        print('Lux = {0:f}  full = {1}  ir = {2}'.format(lux_test, full_test, ir_test))
+        print('Integration time = {}'.format(self.get_timing()))
+        print('Gain = {} \n'.format(self.get_gain()))
