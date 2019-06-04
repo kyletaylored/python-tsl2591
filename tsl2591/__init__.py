@@ -1,3 +1,3 @@
 
 from _version import __version__
-from .main import Tsl2591
+from .tsl2591 import Tsl2591
