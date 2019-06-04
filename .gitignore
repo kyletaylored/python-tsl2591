@@ -1,3 +1,7 @@
-tsl2591.egg-info/
-*.pyc
 .spyderproject
+build
+*.egg-info
+*.pyc
+setuptools-*
+*.so
+dist
