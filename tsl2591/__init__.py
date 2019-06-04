@@ -1,4 +1,4 @@
 
-__version__ = '0.0.3'
+__version__ = '0.1.1'
 
 from .main import Tsl2591
