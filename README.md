@@ -9,6 +9,9 @@ This is a simple python library for the Adafruit TSL2591 breakout board based on
 
 ## Installation
 
+This module can be installed using pip (and can find a copy of this module on [PyPi](https://pypi.org/project/tsl2591/)).
+```pip install tsl2591```
+
 ### Step 1: Enable I2C
 
 You can enable I2C on the Raspberry Pi by following the instructions on [Adafruit](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).

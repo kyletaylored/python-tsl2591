@@ -1,6 +1,7 @@
 <a name="0.1.4"></a>
 ## [0.1.4] - 2019-06-04
 - Added CHANGELOG
+- Published to [PyPi](https://pypi.org/project/tsl2591/)
 
 <a name="0.1.3"></a>
 ## [0.1.3] - 2019-06-04
@@ -12,6 +13,7 @@
 - Updated class name for clarity, clean up variables
 - Added instructions for installation
 - Added common get_current() function with JSON response option
+- Fixes integration_time plus **1** second blocked reliable measures (issue #10)
 
 <a name="0.0.1"></a>
 ## [0.0.1] - 2016-03-06
