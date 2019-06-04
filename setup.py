@@ -6,19 +6,30 @@
 
 import io
 import os
+import re
 import sys
 from shutil import rmtree
 
 from setuptools import find_packages, setup, Command
 
+# Get version.
+PKG = "tsl2591"
+VERSIONFILE = os.path.join(PKG, "_version.py")
+verstrline = open(VERSIONFILE, "rt").read()
+VSRE = r"^__version__ = ['\"]([^'\"]*)['\"]"
+mo = re.search(VSRE, verstrline, re.M)
+if mo:
+    verstr = mo.group(1)
+else:
+    raise RuntimeError("Unable to find version string in %s." % (VERSIONFILE,))
+
 # Package meta-data.
-NAME = 'tsl2591'
+NAME = PKG
 DESCRIPTION = 'Community-coded Python module for TSL2591 sensor. Use at your own risk.'
 URL = 'http://github.com/maxlklaxl/python-tsl2591'
 EMAIL = 'maxhofb@gmail.com'
 AUTHOR = 'Max Hofbauer'
-REQUIRES_PYTHON = '>=2.7.0'
-VERSION = '0.1.1'
+VERSION = verstr
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -40,7 +51,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 # Import the README and use it as the long-description.
 # Note: this will only work if 'README.md' is present in your MANIFEST.in file!
 try:
-    with io.open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
+    with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
         long_description = '\n' + f.read()
 except FileNotFoundError:
     long_description = DESCRIPTION
@@ -101,11 +112,10 @@ setup(
     long_description_content_type='text/markdown',
     author=AUTHOR,
     author_email=EMAIL,
-    python_requires=REQUIRES_PYTHON,
     url=URL,
-    packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
+    # packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
     # If your package is a single module, use this instead of 'packages':
-    # py_modules=['mypackage'],
+    py_modules=[PKG],
 
     # entry_points={
     #     'console_scripts': ['mycli=mymodule:cli'],
