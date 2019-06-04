@@ -1,6 +1,7 @@
 .spyderproject
 build
 *.egg-info
+*.egg
 *.pyc
 setuptools-*
 *.so
