@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
     tsl = tsl2591()  # initialize
     # full, ir = tsl.get_full_luminosity()  # Read raw values (full spectrum and infared spectrum).
-	# lux = tsl.calculate_lux(full, ir)  # Convert raw values to Lux.
+    # lux = tsl.calculate_lux(full, ir)  # Convert raw values to Lux.
 
     while True:
         print(tsl.get_current()) # Return object with all values.
