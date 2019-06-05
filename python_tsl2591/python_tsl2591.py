@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 '''
 This code is an adaptation of the Arduino_TSL2591 library from
 adafruit: https://github.com/adafruit/Adafruit_TSL2591_Library
@@ -80,7 +82,7 @@ GAIN_HIGH = 0x20
 GAIN_MAX = 0x30
 
 
-class Tsl2591(object):
+class tsl2591(object):
     '''
     An object class containing a series of methods to enable easy
     interaction with the sensor.

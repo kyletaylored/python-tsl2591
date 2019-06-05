@@ -1,9 +1,10 @@
 # TSL2591 Python Library
 
-[![GitHub stars](https://img.shields.io/github/stars/maxlklaxl/python-tsl2591.svg)](https://github.com/maxlklaxl/python-tsl2591/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/maxlklaxl/python-tsl2591.svg)](https://github.com/maxlklaxl/python-tsl2591/network)
-[![GitHub issues](https://img.shields.io/github/issues/maxlklaxl/python-tsl2591.svg)](https://github.com/maxlklaxl/python-tsl2591/issues)
+[![GitHub stars](https://img.shields.io/github/stars/kyletaylored/python-tsl2591.svg)](https://github.com/kyletaylored/python-tsl2591/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/kyletaylored/python-tsl2591.svg)](https://github.com/kyletaylored/python-tsl2591/network)
+[![GitHub issues](https://img.shields.io/github/issues/kyletaylored/python-tsl2591.svg)](https://github.com/kyletaylored/python-tsl2591/issues)
 [![Inspired by Adafruit](https://img.shields.io/badge/Inspired%20by-adafruit-blue.svg)](https://gitgud.io/adafruit/Adafruit_TSL2591_Library)
+[![Travis CI](https://img.shields.io/travis/kyletaylored/python_tsl2591.svg)](https://travis-ci.org/kyletaylored/python_tsl2591)
 
 This is a simple python library for the Adafruit TSL2591 breakout board based on the [Arduino library](https://github.com/adafruit/Adafruit_TSL2591_Library) from Adafruit. It was developed to work on a Raspberry PI.
 
@@ -12,7 +13,7 @@ This is a simple python library for the Adafruit TSL2591 breakout board based on
 This module can be installed using pip (and can find a copy of this module on [PyPi](https://pypi.org/project/tsl2591/)).
 
 ```bash
-pip install tsl2591
+pip install python-tsl2591
 ```
 
 ### Step 1: Enable I2C
@@ -47,9 +48,9 @@ python setup.py install
 ## Quickstart
 
 ```
-import tsl2591
+from python_tsl2591 import tsl2591
 
-tsl = tsl2591.Tsl2591()  # initialize
+tsl = tsl2591()  # initialize
 full, ir = tsl.get_full_luminosity()  # read raw values (full spectrum and ir spectrum)
 lux = tsl.calculate_lux(full, ir)  # convert raw values to lux
 print lux, full, ir

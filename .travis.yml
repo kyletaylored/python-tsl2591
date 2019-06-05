@@ -1,0 +1,18 @@
+language: python
+python:
+- 3.6
+- 3.5
+- 3.4
+- 2.7
+install: pip install -U tox-travis
+script: tox
+deploy:
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: kyletaylored
+  password:
+    secure: mYtvKInHoYVvdBP+Jga3Le6aRIoGNSU7wkqxPhj0K1USfc1Z5AY7VDAelI0IRiTt5be9dWp8Q7ARNr+dWW24rKVGMQPrRodfKmj+TkIl8uCj3ervRTfZa8Tzj2NhVI8zOs8A/Uqvs23+FcMpbsv0gzz9hQlKJk6B68/MaN5d8p7LRNdNAkYa80n7f9lQxgWax3pxNegJoD3BwdtEgS8IW1i7mn+WiPn/gPcZb69rsLDs1pL0p2/JcgY9LI2UBImgx7Rivngycaa3oIT/VnW5Lmbxc0xHXY5oIzvE2R5ynX0LkXGd8IuGD3j2zNiacyloV5f/aq8BqixeOe9/ayQ3AWuIizqTZPZ1zQtu4H36ASLWAOWgMyfOH1JbzgvL+6+Wq39nxfIz2D8NFTo9BpBaw5ScmnkUuNgG+91+rQYnBrYSwmdXRV2LsDyUvvB5JtklkJNWaIVtsEWyp9/M38FNlT6oDavYQmLIdRM67PXserD/+piwvLuyVV2Dsf+9vxyaSH9IgGBtmoCfnR77OU5ONI/Bc2nbcqFNoca2yaeiPYN+rhrnXSvribvrn8TLJL9NmYhGlRHOJRS/scCKTC3IDXypCEqGWVuDeUJM/gEs9UqF3+Zk2k27LC5kxDXXlerg+bZQ5HKAonFOZMiszLv+zj1Ahs8/YjL3N7XtHg/Xi9Q=
+  on:
+    tags: true
+    repo: kyletaylored/python-tsl2591
+    python: 3.6

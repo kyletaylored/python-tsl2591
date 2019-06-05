@@ -1,50 +1,35 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Note: To use the 'upload' functionality of this file, you must:
-#   $ pipenv install twine --dev
+"""The setup script."""
 
-import io
-import os
-import re
-import sys
-from shutil import rmtree
+from setuptools import setup, find_packages
+import os, re, io
 
-from setuptools import find_packages, setup, Command
-
-# Get version.
-PKG = "tsl2591"
-VERSIONFILE = os.path.join(PKG, "_version.py")
-verstrline = open(VERSIONFILE, "rt").read()
-VSRE = r"^__version__ = ['\"]([^'\"]*)['\"]"
-mo = re.search(VSRE, verstrline, re.M)
-if mo:
-    verstr = mo.group(1)
-else:
-    raise RuntimeError("Unable to find version string in %s." % (VERSIONFILE,))
-
+####################################
 # Package meta-data.
-NAME = PKG
-DESCRIPTION = 'Community-coded Python module for TSL2591 sensor. Use at your own risk.'
-URL = 'http://github.com/maxlklaxl/python-tsl2591'
-EMAIL = 'maxhofb@gmail.com'
-AUTHOR = 'Max Hofbauer'
-VERSION = verstr
+####################################
+name = 'python-tsl2591'
+package = 'python_tsl2591'
+description = "Community-coded Python module for TSL2591 sensor converted from Adafruit's TSL2591 library. Use at your own risk."
+url = 'http://github.com/kyletaylored/python-tsl2591'
+email = 'maxhofb@gmail.com'
+author = 'Max Hofbauer'
 
 # What packages are required for this module to be executed?
-REQUIRED = [
-    'smbus2',
-]
+requirements = ['smbus>=0.2', ]
+
+setup_requirements = [ ]
+
+test_requirements = [ ]
 
 # What packages are optional?
-EXTRAS = {
+extras = {
     # 'fancy feature': ['django'],
 }
-
-# The rest you shouldn't have to touch too much :)
-# ------------------------------------------------
-# Except, perhaps the License and Trove Classifiers!
-# If you do change the License, remember to change the Trove Classifier for that!
+####################################
+# End Metadata
+####################################
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -56,89 +41,49 @@ try:
 except FileNotFoundError:
     long_description = DESCRIPTION
 
-# Load the package's __version__.py module as a dictionary.
-about = {}
-if not VERSION:
-    project_slug = NAME.lower().replace("-", "_").replace(" ", "_")
-    with open(os.path.join(here, project_slug, '__version__.py')) as f:
-        exec(f.read(), about)
+# Load the package's __version__.py.
+verstr = "Unknown"
+VERSIONFILE = os.path.join(package, "__version__.py")
+verstrline = open(VERSIONFILE, "rt").read()
+VSRE = r"^__version__ = ['\"]([^'\"]*)['\"]"
+mo = re.search(VSRE, verstrline, re.M)
+if mo:
+    verstr = mo.group(1)
 else:
-    about['__version__'] = VERSION
+    raise RuntimeError("Unable to find version string in %s." % (VERSIONFILE,))
 
-
-class UploadCommand(Command):
-    """Support setup.py upload."""
-
-    description = 'Build and publish the package.'
-    user_options = []
-
-    @staticmethod
-    def status(s):
-        """Prints things in bold."""
-        print('\033[1m{0}\033[0m'.format(s))
-
-    def initialize_options(self):
-        pass
-
-    def finalize_options(self):
-        pass
-
-    def run(self):
-        try:
-            self.status('Removing previous builds…')
-            rmtree(os.path.join(here, 'dist'))
-        except OSError:
-            pass
-
-        self.status('Building Source and Wheel (universal) distribution…')
-        os.system('{0} setup.py sdist bdist_wheel --universal'.format(sys.executable))
-
-        self.status('Uploading the package to PyPI via Twine…')
-        os.system('twine upload dist/*')
-
-        self.status('Pushing git tags…')
-        os.system('git tag v{0}'.format(about['__version__']))
-        os.system('git push --tags')
-
-        sys.exit()
-
-
-# Where the magic happens:
+####################################
+# Setuptools
+####################################
 setup(
-    name=NAME,
-    version=about['__version__'],
-    description=DESCRIPTION,
-    long_description=long_description,
-    long_description_content_type='text/markdown',
-    author=AUTHOR,
-    author_email=EMAIL,
-    url=URL,
-    packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
-    # If your package is a single module, use this instead of 'packages':
-    # py_modules=[PKG],
-
-    # entry_points={
-    #     'console_scripts': ['mycli=mymodule:cli'],
-    # },
-    install_requires=REQUIRED,
-    extras_require=EXTRAS,
-    include_package_data=True,
-    license='MIT',
+    author=author,
+    author_email=email,
     classifiers=[
-        # Trove classifiers
-        # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
+        'Development Status :: 2 - Pre-Alpha',
+        'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python',
+        'Natural Language :: English',
+        "Programming Language :: Python :: 2",
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.7",
-        "License :: OSI Approved :: MIT License",
+        'Programming Language :: Python :: 3.7',
         "Operating System :: POSIX :: Linux",
     ],
-    # $ setup.py publish support.
-    cmdclass={
-        'upload': UploadCommand,
-    },
+    description=description,
+    install_requires=requirements,
+    extras_require=extras,
+    license="MIT license",
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+    include_package_data=True,
+    keywords=['python_tsl2591', 'tsl2591', 'light sensor', 'adafruit'],
+    name=name,
+    packages=find_packages(include=['python_tsl2591']),
+    setup_requires=setup_requirements,
+    url=url,
+    version=verstr,
+    zip_safe=False,
 )
