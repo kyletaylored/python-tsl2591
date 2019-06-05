@@ -2,4 +2,4 @@
 
 """Top-level package for python-tsl2591."""
 
-from __version__ import __version__
+from .__version__ import __version__
