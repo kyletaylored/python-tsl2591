@@ -17,7 +17,7 @@ email = 'maxhofb@gmail.com'
 author = 'Max Hofbauer'
 
 # What packages are required for this module to be executed?
-requirements = ['smbus>=0.2', ]
+requirements = ['smbus2>=0.2', ]
 
 setup_requirements = [ ]
 
