@@ -1,3 +1,11 @@
+<a name="0.1.5"></a>
+## [0.1.5] - 2019-06-05
+- [Updating name, adding package scaffolding from CookieCutter](https://github.com/audreyr/cookiecutter-pypackage)
+- Added Travis CI config (removed a test because it only works on Raspbian or devices with I2C enabled)
+- Updated scaffold from existing files
+- Updating package name for consistency (python_tsl2591)
+- Published to [PyPi](https://pypi.org/project/python-tsl2591/)
+
 <a name="0.1.4"></a>
 ## [0.1.4] - 2019-06-04
 - Added CHANGELOG
