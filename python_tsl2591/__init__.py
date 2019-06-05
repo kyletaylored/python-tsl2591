@@ -2,7 +2,7 @@
 
 """Top-level package for python-tsl2591."""
 
-from .__version__ import __version__
 from __future__ import absolute_import
+from .__version__ import __version__
 
 from python_tsl2591.sensor import *
