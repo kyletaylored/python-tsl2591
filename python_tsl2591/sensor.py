@@ -61,12 +61,12 @@ REGISTER_CHAN1_HIGH = 0x17
 # and the longer the integration time the more light the
 # sensor is able to integrate, making it more sensitive in
 # low light the longer the integration time.
-INTEGRATIONTIME_100MS = 0x00
+INTEGRATIONTIME_100MS = 0x00 # shortest integration time (bright light)
 INTEGRATIONTIME_200MS = 0x01
 INTEGRATIONTIME_300MS = 0x02
 INTEGRATIONTIME_400MS = 0x03
 INTEGRATIONTIME_500MS = 0x04
-INTEGRATIONTIME_600MS = 0x05
+INTEGRATIONTIME_600MS = 0x05 # longest integration time (dim light)
 
 # Gain
 # The gain can be set to one of the following values
