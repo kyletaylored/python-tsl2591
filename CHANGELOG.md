@@ -1,3 +1,9 @@
+<a name="0.2.0"></a>
+## [0.2.0] - 2019-06-05
+- Updated README for proper pip instructions and sample
+- Deprecated smbus requirements (noted in FAQ)
+- Fix version import
+
 <a name="0.1.5"></a>
 ## [0.1.5] - 2019-06-05
 - [Updating name, adding package scaffolding from CookieCutter](https://github.com/audreyr/cookiecutter-pypackage)
@@ -32,7 +38,3 @@
 <a name="0.0.0"></a>
 ## 0.0.0 - 2015-05-07
 - Initial release
-
-[0.1.4]: https://github.com/maxlklaxl/python-tsl2591/compare/0.0.1...0.1.4
-[0.1.3]: https://github.com/maxlklaxl/python-tsl2591/compare/0.0.1...0.1.3
-[0.0.1]: https://github.com/maxlklaxl/python-tsl2591/compare/0.0.0...0.0.1

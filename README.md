@@ -4,7 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/kyletaylored/python-tsl2591.svg)](https://github.com/kyletaylored/python-tsl2591/network)
 [![GitHub issues](https://img.shields.io/github/issues/kyletaylored/python-tsl2591.svg)](https://github.com/kyletaylored/python-tsl2591/issues)
 [![Inspired by Adafruit](https://img.shields.io/badge/Inspired%20by-adafruit-blue.svg)](https://gitgud.io/adafruit/Adafruit_TSL2591_Library)
-[![Travis CI](https://img.shields.io/travis/kyletaylored/python_tsl2591.svg)](https://travis-ci.org/kyletaylored/python_tsl2591)
+[![Build Status](https://travis-ci.org/kyletaylored/python-tsl2591.svg?branch=master)](https://travis-ci.org/kyletaylored/python-tsl2591)
 
 This is a simple python library for the Adafruit TSL2591 breakout board based on the [Arduino library](https://github.com/adafruit/Adafruit_TSL2591_Library) from Adafruit. It was developed to work on a Raspberry PI.
 
@@ -16,7 +16,7 @@ To use this library, you must have the following:
 
 ## Installation
 
-This module can be installed using pip (and can find a copy of this module on [PyPi](https://pypi.org/project/tsl2591/)).
+This module can be installed using pip (and can find a copy of this module on [PyPi](https://pypi.org/project/python-tsl2591/)).
 
 ```bash
 pip install python-tsl2591
